@@ -4,7 +4,7 @@ import * as viewModel from './character-collection.vm';
 const mapCharacterFromApiToVM = (
   character: apiModel.CharacterEntity
 ): viewModel.CharacterEntity => ({
-  id: character.id,
+  id: String(character.id),
   name: character.name,
   status: character.status,
   species: character.species,
