@@ -11,7 +11,7 @@ const CharacterCollectionContainer: React.FC = () => {
     getCharacterCollection()
       .then(mapCharacterListFromApiToVM)
       .then(setCharacters);
-  });
+  }, []);
   const history = useHistory();
   const handleDetail = (id: string) => {
     history.push(linkRoutes.characterDetail(id));
