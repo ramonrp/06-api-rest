@@ -1,8 +1,9 @@
 import { CharacterEntity } from './character-collection.api-model';
-import { CHARACTERS } from './character-collection.mock-data';
-const characterCollection = [...CHARACTERS];
+const url = 'https://rickandmortyapi.com/api/character';
 const getCharacterCollection = async (): Promise<CharacterEntity[]> => {
-  return characterCollection;
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => data.results);
 };
 
 export { getCharacterCollection };
