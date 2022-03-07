@@ -10,7 +10,6 @@ interface Props {
 
 const CharacterCollection: React.FunctionComponent<Props> = (props) => {
   const { characterCollection, onDetail } = props;
-  console.log(characterCollection);
   return (
     <div className={classes.root}>
       <ul className={classes.list}>
