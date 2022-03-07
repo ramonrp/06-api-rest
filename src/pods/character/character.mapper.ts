@@ -8,10 +8,8 @@ const mapCharacterFromApiToVM = (
   name: character.name,
   status: character.status,
   species: character.species,
-  type: character.type,
   gender: character.gender,
   image: character.image,
-  url: character.url,
 });
 
 export { mapCharacterFromApiToVM };

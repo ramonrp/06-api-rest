@@ -18,7 +18,7 @@ const Character: React.FunctionComponent<Props> = (props) => {
       </div>
       <div className={classes.info}>
         <div>Name:{character.name}</div>
-        <div>Character:{character.species}</div>
+        <div>Specie:{character.species}</div>
         <div>Status:{character.status}</div>
         <div>Gender:{character.gender}</div>
       </div>

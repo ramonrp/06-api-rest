@@ -6,12 +6,8 @@ const mapCharacterFromApiToVM = (
 ): viewModel.CharacterEntity => ({
   id: String(character.id),
   name: character.name,
-  status: character.status,
   species: character.species,
-  type: character.type,
-  gender: character.gender,
   image: character.image,
-  url: character.url,
 });
 
 const mapCharacterListFromApiToVM = (
