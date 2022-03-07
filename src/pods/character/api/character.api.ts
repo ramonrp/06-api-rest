@@ -1,5 +1,5 @@
 import { CharacterEntity } from './character.api-model';
-const url = 'https://rickandmortyapi.com/api/character';
+const url = 'api/characters';
 
 const getCharacter = async (characterId: string): Promise<CharacterEntity> => {
   return fetch(`${url}/${characterId}`)
