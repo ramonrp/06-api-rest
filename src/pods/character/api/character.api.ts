@@ -7,4 +7,23 @@ const getCharacter = async (characterId: string): Promise<CharacterEntity> => {
     .then((data) => data);
 };
 
-export { getCharacter };
+const saveSentences = async (
+  characterId: string,
+  bestSentences: string
+): Promise<boolean> => {
+  return fetch(`${url}/${characterId}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ bestSentences }),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  }).then((response) => {
+    if (response.ok) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+};
+
+export { getCharacter, saveSentences };
