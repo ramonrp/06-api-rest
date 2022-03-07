@@ -9,7 +9,7 @@ const getCharacter = async (characterId: string): Promise<CharacterEntity> => {
 
 const saveSentences = async (
   characterId: string,
-  bestSentences: string
+  bestSentences: string[]
 ): Promise<boolean> => {
   return fetch(`${url}/${characterId}`, {
     method: 'PATCH',

@@ -11,7 +11,7 @@ const CharacterContainer: React.FC<Props> = (props) => {
   const { characterId } = props;
   const { character } = useCharacter(characterId);
   const history = useHistory();
-  const handleSave = async (bestSentences: string) => {
+  const handleSave = async (bestSentences: string[]) => {
     const success = await saveSentences(characterId, bestSentences);
     if (success) {
       history.goBack();
