@@ -10,6 +10,7 @@ const mapCharacterFromApiToVM = (
   species: character.species,
   gender: character.gender,
   image: character.image,
+  bestSentences: character.bestSentences,
 });
 
 export { mapCharacterFromApiToVM };

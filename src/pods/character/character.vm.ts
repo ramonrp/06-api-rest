@@ -5,6 +5,7 @@ interface CharacterEntity {
   status: string;
   gender: string;
   image: string;
+  bestSentences: string;
 }
 
 export { CharacterEntity };

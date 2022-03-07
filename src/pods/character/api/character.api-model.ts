@@ -11,6 +11,7 @@ interface CharacterEntity {
   episode: string[];
   url: string;
   created: string;
+  bestSentences: string;
 }
 
 interface Origin {
