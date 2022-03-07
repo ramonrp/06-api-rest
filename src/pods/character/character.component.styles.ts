@@ -14,3 +14,8 @@ export const img = css`
   width: 100%;
   display: block;
 `;
+
+export const textArea = css`
+  width: 100%;
+  min-height: 150px;
+`;
