@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { getCharacter } from './api';
-import { mapCharacterFromApiToVM } from './character.mapper';
-import { CharacterEntity } from './character.vm';
+import { useCharacter } from './character.hooks';
 import { Character } from './character.component';
 interface Props {
   characterId: string;
@@ -9,11 +7,7 @@ interface Props {
 
 const CharacterContainer: React.FC<Props> = (props) => {
   const { characterId } = props;
-  const [character, setCharacter] = React.useState<CharacterEntity>();
-  React.useEffect(() => {
-    getCharacter(characterId).then(mapCharacterFromApiToVM).then(setCharacter);
-  }, []);
-
+  const { character } = useCharacter(characterId);
   if (!character) {
     return <div>Loading</div>;
   }
