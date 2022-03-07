@@ -3,7 +3,7 @@ import { gql } from 'graphql-request';
 import { graphQLClient } from 'core/api';
 
 interface CharacterCollectionResponse {
-  characters: CharacterEntity[];
+  characters: { results: CharacterEntity[] };
 }
 const getCharacterCollection = async (): Promise<CharacterEntity[]> => {
   const CharacterCollectionQuery = gql`
@@ -19,11 +19,12 @@ const getCharacterCollection = async (): Promise<CharacterEntity[]> => {
     }
   `;
 
-  const { characters } =
-    await graphQLClient.request<CharacterCollectionResponse>(
-      CharacterCollectionQuery
-    );
-  return characters;
+  const {
+    characters: { results },
+  } = await graphQLClient.request<CharacterCollectionResponse>(
+    CharacterCollectionQuery
+  );
+  return results;
 };
 
 export { getCharacterCollection };

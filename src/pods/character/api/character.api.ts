@@ -1,10 +1,29 @@
 import { CharacterEntity } from './character.api-model';
-const url = 'https://rickandmortyapi.com/api/character';
+import { gql } from 'graphql-request';
+import { graphQLClient } from 'core/api';
+
+interface CharacterResponse {
+  character: CharacterEntity;
+}
 
 const getCharacter = async (characterId: string): Promise<CharacterEntity> => {
-  return fetch(`${url}/${characterId}`)
-    .then((response) => response.json())
-    .then((data) => data);
+  const characterQuery = gql`
+    query ($characterId: ID!) {
+      character(id: $characterId) {
+        id
+        name
+        species
+        status
+        gender
+        image
+      }
+    }
+  `;
+  const { character } = await graphQLClient.request<CharacterResponse>(
+    characterQuery,
+    { characterId }
+  );
+  return character;
 };
 
 export { getCharacter };
