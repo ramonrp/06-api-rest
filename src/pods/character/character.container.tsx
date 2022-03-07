@@ -11,7 +11,7 @@ const CharacterContainer: React.FC<Props> = (props) => {
   const { characterId } = props;
   const [character, setCharacter] = React.useState<CharacterEntity>();
   React.useEffect(() => {
-    getCharacter().then(mapCharacterFromApiToVM).then(setCharacter);
+    getCharacter(characterId).then(mapCharacterFromApiToVM).then(setCharacter);
   }, []);
 
   if (!character) {
